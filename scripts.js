@@ -6,33 +6,26 @@ $(document).ready(function(){
 
     // Display beers with ABV < 5.0%
     $('#weak-beers').on('click', function(){
-        setTimeout(function(){
-            getBeerInfo("weak", $panelIds);
-        }, 200);
+        setTimeout(getBeerInfo("weak", $panelIds), 200);
     });
 
     // Display beers with ABV 5.0% - 8.0%
     $('#medium-beers').on('click', function() {
-        setTimeout(function(){
-            getBeerInfo("medium", $panelIds);
-        }, 200);
+        setTimeout(getBeerInfo("medium", $panelIds), 200);
     });
 
     // Display beers with ABV > 8.0%
     $('#strong-beers').on('click', function(){
-        setTimeout(function(){
-            getBeerInfo("strong", $panelIds);
-        }, 200);
+        setTimeout(getBeerInfo("strong", $panelIds), 200);
     });
 
     // Display random beers
     $('#random').on('click', function(){
-        setTimeout(function(){
-            generateRandom($panelIds);
-        }, 200);
+        setTimeout(generateRandom($panelIds), 200);
     });
-
 });
+
+
 
 /*
 Clears all panels and popovers.
@@ -44,6 +37,8 @@ function clearPanels() {
     $('.panel-footer').empty();
 }
 
+
+
 /*
 Makes an AJAX request to the Punk Beer API with filter 'random' 9 times.
 The 'random' filter only sends back information on one beer.
@@ -52,7 +47,7 @@ This way lets the user randomly see 9 out of the 200+ beers stored in the API.
 function generateRandom($panelIds) {
     clearPanels();
 
-    // Make AJAX request
+    // Make AJAX requests
     $.each($panelIds, function(i, $panelId){
         $.ajax({
             type: 'GET',
@@ -75,6 +70,8 @@ function generateRandom($panelIds) {
         });
     });
 }
+
+
 
 /*
 Makes an AJAX request depending on what strength of beer selected.
@@ -126,6 +123,8 @@ function getBeerInfo(beer_strength, $panelIds) {
         }
     });
 }
+
+
 
 /*
 Function to get a random integer from the range 0 to max.
