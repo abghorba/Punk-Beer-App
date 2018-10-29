@@ -1,0 +1,89 @@
+html, body, .jumbotron {
+    background: url("img/beer.jpg");
+    background-repeat: no-repeat;
+    background-size: auto;
+}
+
+.jumbotron h1 {
+    letter-spacing: 2px;
+    font-weight: bold;
+    text-shadow: 2px 2px #ff0000;
+}
+
+.jumbotron p {
+    font-style: italic;
+    color: white;
+    text-shadow: 1px 1px #0000ff;
+}
+
+.panel {
+    opacity: 0.75;
+}
+
+.panel-heading {
+    font-size: 115%;
+    text-align: center;
+    text-shadow: 3px 3px #000000;
+
+}
+
+.panel-body {
+    background-color: #BE7DE6;
+    cursor: pointer;
+}
+
+.panel-body:hover {
+    background-color: dodgerblue;
+}
+
+.panel-footer.panel-custom {
+    background: orange;
+    font-size: 105%;
+    text-align: center;
+    text-shadow: 1px 1px #ff0000;
+}
+
+.beer-img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 25%;
+    height: 250px;
+}
+
+/* Popover CSS taken and modified from https://www.w3schools.com/bootstrap/bootstrap_ref_js_popover.asp */
+.popover {
+    border: 2px dotted red;
+}
+
+.popover-title {
+    background-color: #73AD21;
+    color: #000000;
+    font-size: 28px;
+    text-align: center;
+}
+
+.popover-content {
+    background-color: red;
+    color: #FFFFFF;
+    padding: 25px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.footer-custom {
+    text-align: center;
+}
+
+.footer-custom > p {
+    color: white;
+    font-size: 16px;
+}
+.footer-custom > a:link {
+    color: white;
+    font-size: 14px;
+}
+
+.footer-custom > a:hover {
+    color: #FF00FF;
+}
