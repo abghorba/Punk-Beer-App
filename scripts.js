@@ -56,7 +56,7 @@ function generateRandom($panelIds) {
             success: function(beers){
                 $.each(beers, function(j, beer){
                     $panelId.children('.panel-heading').append(beer.name);
-                    $panelId.children('.panel-body').append('<img src=' + beer.image_url + ' class="beer-img" alt="Image">')
+                    $panelId.children('.panel-body').append(`<img src=${beer.image_url} class="beer-img" alt="Image">`)
                     $panelId.children('.popup').popover({
                         title: beer.name,
                         content: beer.description,
@@ -64,7 +64,7 @@ function generateRandom($panelIds) {
                         placement:"left",
                         animation: false,
                     });
-                    $panelId.children('.panel-footer').append('ABV: ' + beer.abv + '%. ' + beer.tagline);
+                    $panelId.children('.panel-footer').append(`ABV: ${beer.abv}%. ${beer.tagline}`);
                 });
             }
         });
@@ -100,7 +100,7 @@ function getBeerInfo(beer_strength, $panelIds) {
     // Make AJAX request
     $.ajax({
         type: 'GET',
-        url: 'https://api.punkapi.com/v2/beers' + query_url +'per_page=80',
+        url: `https://api.punkapi.com/v2/beers${query_url}per_page=80`,
         dataType: 'json',
         success: function(beers){
             // May not get 80 results from the API response.
@@ -109,8 +109,8 @@ function getBeerInfo(beer_strength, $panelIds) {
             $.each($panelIds, function(i, $panelId){
                 // Want to randomly choose from the API response.
                 $panelId.children('.panel-heading').append(beers[index].name);
-                $panelId.children('.panel-body').append('<img src=' + beers[index].image_url + ' class="beer-img" alt="Image">');
-                $panelId.children('.panel-footer').append('ABV: ' + beers[index].abv + '%. ' + beers[index].tagline);
+                $panelId.children('.panel-body').append(`<img src=${beers[index].image_url} class="beer-img" alt="Image">`);
+                $panelId.children('.panel-footer').append(`ABV: ${beers[index].abv}%. ${beers[index].tagline}`);
                 $panelId.children('.popup').popover({
                     title: beers[index].name,
                     content: beers[index].description,
