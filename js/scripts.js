@@ -23,6 +23,12 @@ $(document).ready(function(){
     $('#random').on('click', function(){
         setTimeout(generateRandom($panelIds), 200);
     });
+
+    $('.panel-body').mouseenter(function(){
+        $(this).find('.hover-text').show();
+    }).mouseleave(function(){
+        $(this).find('.hover-text').hide();
+    });
 });
 
 
@@ -33,7 +39,6 @@ Clears all panels and popovers.
 function clearPanels() {
     $('.panel-heading').empty();
     $('.panel-body').empty();
-    $('.popup').popover('destroy');
     $('.panel-footer').empty();
 }
 
@@ -56,14 +61,7 @@ function generateRandom($panelIds) {
             success: function(beers){
                 $.each(beers, function(j, beer){
                     $panelId.children('.panel-heading').append(beer.name);
-                    $panelId.children('.panel-body').append(`<img src=${beer.image_url} class="beer-img" alt="Image">`)
-                    $panelId.children('.popup').popover({
-                        title: beer.name,
-                        content: beer.description,
-                        trigger:"hover",
-                        placement:"left",
-                        animation: false,
-                    });
+                    $panelId.children('.panel-body').append(`<img src=${beer.image_url} class="beer-img" alt="Image"> <div class="hover-text">${beer.description}</div>`);
                     $panelId.children('.panel-footer').append(`ABV: ${beer.abv}%. ${beer.tagline}`);
                 });
             }
@@ -109,15 +107,8 @@ function getBeerInfo(beer_strength, $panelIds) {
             $.each($panelIds, function(i, $panelId){
                 // Want to randomly choose from the API response.
                 $panelId.children('.panel-heading').append(beers[index].name);
-                $panelId.children('.panel-body').append(`<img src=${beers[index].image_url} class="beer-img" alt="Image">`);
+                $panelId.children('.panel-body').append(`<img src=${beers[index].image_url} class="beer-img" alt="Image"> <div class="hover-text">${beers[index].description}</div>`);
                 $panelId.children('.panel-footer').append(`ABV: ${beers[index].abv}%. ${beers[index].tagline}`);
-                $panelId.children('.popup').popover({
-                    title: beers[index].name,
-                    content: beers[index].description,
-                    trigger:"hover",
-                    placement:"left",
-                    animation: false,
-                    });
                 index++;
             });
         }
