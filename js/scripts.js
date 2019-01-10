@@ -107,7 +107,7 @@ function getBeerInfo(beer_strength, $panelIds) {
             $.each($panelIds, function(i, $panelId){
                 // Want to randomly choose from the API response.
                 $panelId.children('.panel-heading').append(beers[index].name);
-                $panelId.children('.panel-body').append(`<img src=${beers[index].image_url} class="beer-img" alt="Image"> <div class="hover-text">${beers[index].description}</div>`);
+                $panelId.children('.panel-body').append(`<img src=${beers[index].image_url} class="beer-img" alt="Image"> <p class="hover-text">${beers[index].description}</p>`);
                 $panelId.children('.panel-footer').append(`ABV: ${beers[index].abv}%. ${beers[index].tagline}`);
                 index++;
             });

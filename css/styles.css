@@ -1,6 +1,5 @@
 html, body, .jumbotron {
     background: url("../img/beer.jpg");
-    background-repeat: no-repeat;
     background-size: auto;
 }
 
@@ -46,7 +45,7 @@ html, body, .jumbotron {
     transition: 1s;
 }
 
-div .hover-text {
+.hover-text {
     color: white;
     text-align: center;
     font-weight: bold;
@@ -54,10 +53,12 @@ div .hover-text {
     z-index: 10;
     display: none;
     position: absolute;
-    top: 50px;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    margin: 0 auto;
+    top: 47%;
     right: 20px;
     left: 20px;
-    bottom: 0px;
 }
 
 .panel-footer.panel-custom {
